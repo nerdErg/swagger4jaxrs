@@ -1,7 +1,8 @@
 /.idea
 /target
-/grails-swagger4jaxrs-0.1-SNAPSHOT.zip
+/grails-swagger4jaxrs-*.zip
 /*.sha1
 /plugin.xml
 /*.iml
 atlassian-ide-plugin.xml
+web-app/WEB-INF
