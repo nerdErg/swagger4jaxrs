@@ -24,6 +24,6 @@ grails.project.dependency.resolution = {
             export = false
         }
 
-        compile ':jaxrs:0.8'
+        compile ':jaxrs:0.6'
     }
 }
