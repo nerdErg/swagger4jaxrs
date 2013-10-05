@@ -21,7 +21,7 @@
     var baseUrl = '';
     $(function () {
       window.swaggerUi = new SwaggerUi({
-        url: "http://localhost:8080/nerdbase/api-docs",
+        url: "${grailsApplication.config.grails.serverURL}/api-docs",
         dom_id: "swagger-ui-container",
         supportedSubmitMethods: ['get', 'post', 'put', 'delete'],
         onComplete: function (swaggerApi, swaggerUi) {
