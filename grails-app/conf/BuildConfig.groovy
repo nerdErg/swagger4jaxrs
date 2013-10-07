@@ -9,7 +9,6 @@ grails.project.dependency.resolution = {
         grailsCentral()
         mavenLocal()
         mavenCentral()
-        mavenRepo "http://thog.nerderg.com:8070/nexus/content/groups/public/"
         mavenRepo "http://maven.restlet.org/"
     }
 
