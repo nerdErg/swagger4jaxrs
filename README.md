@@ -7,7 +7,7 @@ This is a Grails plugin that adds [Swagger](https://developers.helloreverb.com/s
 First add the following plugin dependency to your BuildConfig.groovy file:
 
 ```groovy
-compile "com.nerderg.grails.plugins:swagger4jaxrs:0.1"
+compile ":swagger4jaxrs:0.1"
 ```
 
 ## Configuration
