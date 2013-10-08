@@ -17,9 +17,7 @@ grails.project.dependency.resolution = {
         compile 'com.fasterxml.jackson.core:jackson-core:2.1.0'
         compile 'com.fasterxml.jackson.core:jackson-databind:2.1.0'
 
-        test "org.spockframework:spock-grails-support:0.7-groovy-2.0" {
-            export = false
-        }
+        test 'org.spockframework:spock-grails-support:0.7-groovy-2.0'
     }
 
     plugins {
