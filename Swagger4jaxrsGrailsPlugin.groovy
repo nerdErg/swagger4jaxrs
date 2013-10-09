@@ -3,7 +3,7 @@ import grails.util.Environment
 import org.codehaus.groovy.grails.commons.GrailsApplication
 
 class Swagger4jaxrsGrailsPlugin {
-    def version = "0.1"
+    def version = "0.2-SNAPSHOT"
     def grailsVersion = "2.0 > *"
     def pluginExcludes = [
         "web-app/WEB-INF/**"
