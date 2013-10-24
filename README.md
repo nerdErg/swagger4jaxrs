@@ -11,23 +11,28 @@ compile ":swagger4jaxrs:0.1"
 ```
 
 ## Configuration
-Next we need to configure Swagger in our host application. To do that, we have to add and customize the following Spring Bean declaration within your **applicationContext.xml** file:
+Next we need to configure Swagger in our host application. To do that, we have to add and customize the following Spring Bean declaration within your **resources.groovy** file located at grails-app/conf/spring/resources.groovy:
 
-```xml
-    ...
-	<bean id="swaggerConfig" class="com.wordnik.swagger.jaxrs.config.BeanConfig">
-        <property name="resourcePackage" value="<package with your resources>"/>
-        <property name="version" value="<your REST API version>"/>
-        <property name="basePath" value="<your REST API url>"/>
-        <property name="title" value="<your app name>"/>
-        <property name="description" value=""/>
-        <property name="contact" value="aruiz@nerderg.com"/>
-        <property name="license" value="Apache 2.0 License"/>
-        <property name="licenseUrl" value="http://www.apache.org/licenses/LICENSE-2.0.html"/>
-        <property name="scan" value="true"/>
-    </bean>
-	...
+```groovy
+    import com.wordnik.swagger.jaxrs.config.BeanConfig
+    beans = {
+
+        swaggerConfig(BeanConfig) {
+            resourcePackage = "<package with your resources>"
+            version = "<your REST API version>"
+            basePath = grailsApplication.config.grails.serverURL
+            title = "<your App Name>"
+            description = "<your description here>"
+            contact = "<your email>"
+            license = "<your license>"
+            licenseUrl = "<your license link>"
+            scan = true
+        }
+    }
 ```
+
+If you are updating from a previous version of swagger4jaxrs and want to use the above method to configure your app you will need to remove the bean declaration from applicationContext.xml that you had previously added.
+
 
 Make sure you have added the Swagger annotations in your JAX-RS "resources" with the required meta information to generate a comprehensive documentarion for you REST API. Next there is a good [example](https://github.com/wordnik/swagger-core/tree/master/samples "Swager implementation samples") to show you how:
 
@@ -163,19 +168,19 @@ First of all, after running your app, please check that your [Swagger API declar
 
 ```
 http://localhost:<port>/<host-app-context>/api-docs
-``` 
+```
 
 If you are get the JSON with your API declaration, tehn we are ready to see if ca display it in the [Swagger-UI](https://github.com/wordnik/swagger-ui) way trying this url in your browser:
 
 ```
 http://localhost:<port>/<host-app-context>/showRestApi
 ```
- 
+
 or if you are using ["hyphenated" URL convention](http://grails.org/doc/2.2.x/guide/theWebLayer.html#customizingUrlFormat):
 
 ```
 http://localhost:<port>/<host-app-context>/show-rest-api
-``` 
+```
 
 ### and then you should be getting something as beautiful as the following screenshot :-):
 
