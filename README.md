@@ -1,5 +1,9 @@
-swagger4jaxrs
-=============
+![nerdErg Home](http://i.imgur.com/ulpgnsy.png)
+
+----------
+
+[swagger4jaxrs](http://grails.org/plugin/swagger4jaxrs)
+=======================================================
 
 This is a Grails plugin that adds [Swagger](https://developers.helloreverb.com/swagger/) support to document REST APIs of any Grails projects that use the [Grails JAX-RS (JSR 311) plugin](http://grails.org/plugin/jaxrs).
 
@@ -11,7 +15,7 @@ compile ":swagger4jaxrs:0.1"
 ```
 
 ## Configuration
-Next we need to configure Swagger in our host application. To do that, we have to add and customize the following Spring Bean declaration within your **resources.groovy** file located at grails-app/conf/spring/resources.groovy:
+Next we need to configure Swagger in our host application. To do that, we have to add and customize the following Spring Bean declaration within your **resources.groovy** file located at **grails-app/conf/spring/resources.groovy**:
 
 ```groovy
     import com.wordnik.swagger.jaxrs.config.BeanConfig
