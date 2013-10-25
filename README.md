@@ -1,4 +1,4 @@
-![nerdErg Home](http://i.imgur.com/ulpgnsy.png)
+![nerdErg Home](http://www.nerderg)
 
 ----------
 
