@@ -24,7 +24,7 @@ Next we need to configure Swagger in our host application. To do that, we have t
         swaggerConfig(BeanConfig) {
             resourcePackage = "<package with your resources>"
             version = "<your REST API version>"
-            basePath = grailsApplication.config.grails.serverURL
+            basePath = "${grailsApplication.config.grails.serverURL}/api"
             title = "<your App Name>"
             description = "<your description here>"
             contact = "<your email>"
@@ -35,7 +35,7 @@ Next we need to configure Swagger in our host application. To do that, we have t
     }
 ```
 
-If you are updating from a previous version of swagger4jaxrs and want to use the above method to configure your app you will need to remove the bean declaration from applicationContext.xml that you had previously added.
+If you are updating from a previous version of swagger4jaxrs and want to use the above method to configure your app you will need to remove the bean declaration from applicationContext.xml that you had previously added. You will also have to define the grails.serverURL in your config.
 
 
 Make sure you have added the Swagger annotations in your JAX-RS "resources" with the required meta information to generate a comprehensive documentarion for you REST API. Next there is a good [example](https://github.com/wordnik/swagger-core/tree/master/samples "Swager implementation samples") to show you how:
