@@ -17,18 +17,26 @@ grails.project.dependency.resolution = {
         compile 'com.fasterxml.jackson.core:jackson-core:2.1.0'
         compile 'com.fasterxml.jackson.core:jackson-databind:2.1.0'
 
-        test 'org.spockframework:spock-grails-support:0.7-groovy-2.0'
+        if (owner.grailsVersion ==~ /2\.2\..*/) {
+            test('org.spockframework:spock-grails-support:0.7-groovy-2.0') {
+                export = false
+            }
+        }
     }
 
     plugins {
-        compile ':jaxrs:0.8'
+        runtime(':jaxrs:0.8') {
+            export = false
+        }
 
         build ':release:2.2.1', ':rest-client-builder:1.0.3', {
             export = false
         }
 
         test(':spock:0.7') {
-            exclude "spock-grails-support"
+            if (owner.grailsVersion ==~ /2\.2\..*/) {
+                exclude "spock-grails-support"
+            }
             export = false
         }
     }
