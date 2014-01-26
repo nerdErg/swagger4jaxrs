@@ -71,7 +71,7 @@ import javax.ws.rs.*;
 
 @Path("/api/user")
 @Api(value="/user", description = "Operations about user")
-@Produces({"application/json"})
+@Produces(["application/json"])
 public class UserResource {
 	static UserData userData = new UserData();
 
@@ -106,9 +106,9 @@ public class UserResource {
 	@PUT
 	@Path("/{username}")
 	@ApiOperation(value = "Updated user", notes = "This can only be done by the logged in user.")
-	@ApiResponses(value = {
+	@ApiResponses(value = [
 			@ApiResponse(code = 400, message = "Invalid user supplied"),
-			@ApiResponse(code = 404, message = "User not found") })
+			@ApiResponse(code = 404, message = "User not found") ])
 	public Response updateUser(
 			@ApiParam(value = "name that need to be deleted", required = true) @PathParam("username") String username,
 			@ApiParam(value = "Updated user object", required = true) User user) {
@@ -119,9 +119,9 @@ public class UserResource {
 	@DELETE
 	@Path("/{username}")
 	@ApiOperation(value = "Delete user", notes = "This can only be done by the logged in user.")
-	@ApiResponses(value = {
+	@ApiResponses(value = [
 			@ApiResponse(code = 400, message = "Invalid username supplied"),
-			@ApiResponse(code = 404, message = "User not found") })
+			@ApiResponse(code = 404, message = "User not found") ])
 	public Response deleteUser(
 			@ApiParam(value = "The name that needs to be deleted", required = true) @PathParam("username") String username) {
 		userData.removeUser(username);
@@ -131,9 +131,9 @@ public class UserResource {
 	@GET
 	@Path("/{username}")
 	@ApiOperation(value = "Get user by user name", response = User.class)
-	@ApiResponses(value = {
+	@ApiResponses(value = [
 			@ApiResponse(code = 400, message = "Invalid username supplied"),
-			@ApiResponse(code = 404, message = "User not found") })
+			@ApiResponse(code = 404, message = "User not found") ])
 	public Response getUserByName(
 			@ApiParam(value = "The name that needs to be fetched. Use user1 for testing. ", required = true) @PathParam("username") String username)
 		throws ApiException {
@@ -148,7 +148,7 @@ public class UserResource {
 	@GET
 	@Path("/login")
 	@ApiOperation(value = "Logs user into the system", response = String.class)
-	@ApiResponses(value = { @ApiResponse(code = 400, message = "Invalid username/password supplied") })
+	@ApiResponses(value = [ @ApiResponse(code = 400, message = "Invalid username/password supplied") ])
 	public Response loginUser(
 			@ApiParam(value = "The user name for login", required = true) @QueryParam("username") String username,
 			@ApiParam(value = "The password for login in clear text", required = true) @QueryParam("password") String password) {
