@@ -25,16 +25,15 @@ class Swagger4jaxrsGrailsPlugin {
     def issueManagement = [ system: "GitHub", url: "https://github.com/nerdErg/swagger4jaxrs/issues" ]
     def scm = [ url: "https://github.com/nerdErg/swagger4jaxrs" ]
 
+    def dependsOn = [
+        jaxrs: "0.8 > *"
+    ]
+
     def loadAfter = [
         "jaxrs"
     ]
 
     def doWithSpring = {
-        /*
-        if (! manager?.hasGrailsPlugin("jaxrs") {
-            throw new IllegalStateException("JaxRS is required for swagger4jaxrs.")
-        }
-        */
         mergeConfig(application)
 
         ConfigObject local = application.config.'swagger4jaxrs'
