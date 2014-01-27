@@ -38,26 +38,40 @@ class Swagger4jaxrsGrailsPlugin {
 
         ConfigObject local = application.config.'swagger4jaxrs'
 
-        if (local == null || local.isEmpty()) {
-            throw new IllegalStateException("The swagger4jaxrs config is missing.")
-        }
+        validateLocalConfig(local)
 
         swaggerConfig(BeanConfig) { bean ->
             bean.autowire = true
             resourcePackage = local.resourcePackage
-            version = local.version
+            version = local.version ?: "1"
             basePath = "${application.config.grails.serverURL}/api"
-            title = local.title
-            description = local.description
-            contact = local.contact
-            license = local.license
-            licenseUrl = local.licenseUrl
+            title = local.title ?: grails.util.Metadata.current.'app.name'
+            description = local.description ?: ""
+            contact = local.contact ?: ""
+            license = local.license ?: ""
+            licenseUrl = local.licenseUrl ?: ""
             scan = local.scan ?: true
         }
     }
 
     def onConfigChange = { event ->
         mergeConfig(application)
+
+        ConfigObject local = application.config.'swagger4jaxrs'
+
+        validateLocalConfig(local)
+
+        event.ctx.getBean('swaggerConfig').with {
+            resourcePackage = local.resourcePackage
+            version = local.version ?: "1"
+            basePath = "${application.config.grails.serverURL}/api"
+            title = local.title ?: grails.util.Metadata.current.'app.name'
+            description = local.description ?: ""
+            contact = local.contact ?: ""
+            license = local.license ?: ""
+            licenseUrl = local.licenseUrl ?: ""
+            scan = local.scan ?: true
+        }
     }
 
     /**
@@ -73,5 +87,15 @@ class Swagger4jaxrsGrailsPlugin {
         config.putAll(secondaryConfig.org.grails.jaxrs.merge(currentConfig))
 
         app.config.org.grails.jaxrs = config
+    }
+
+    private void validateLocalConfig(ConfigObject local) {
+        if (local.isEmpty()) {
+            throw new IllegalStateException("The swagger4jaxrs config is missing.")
+        }
+
+        if (local.resourcePackage.isEmpty()) {
+            throw new IllegalStateException("The swagger4jaxrs config requires a resourcePackage path.")
+        }
     }
 }
