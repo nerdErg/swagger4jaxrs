@@ -15,24 +15,33 @@ compile ":swagger4jaxrs:0.1"
 ```
 
 ## Configuration
-Next we need to configure Swagger in our host application. To do that, we have to add and customize the following Spring Bean declaration within your **resources.groovy** file located at **grails-app/conf/spring/resources.groovy**:
+
+The following configuration is the minimum the plugin requires, which can be placed in the ```grails-app/conf/Config.groovy``` file:
 
 ```groovy
-    import com.wordnik.swagger.jaxrs.config.BeanConfig
-    beans = {
+grails.serverUrl = "http://localhost:8080/ExampleApp"
 
-        swaggerConfig(BeanConfig) {
-            resourcePackage = "<package with your resources>"
-            version = "<your REST API version>"
-            basePath = "${grailsApplication.config.grails.serverURL}/api"
-            title = "<your App Name>"
-            description = "<your description here>"
-            contact = "<your email>"
-            license = "<your license>"
-            licenseUrl = "<your license link>"
-            scan = true
-        }
-    }
+'swagger4jaxrs' {
+    resourcePackage = "<package with your resources>"
+}
+```
+
+And this is the fully enumerated setup:
+
+```groovy
+grails.serverUrl = "http://localhost:8080/ExampleApp"
+
+'swagger4jaxrs' {
+    resourcePackage = "<package with your resources>"
+
+    version = "<your REST API version>" // Default "1".
+    title = "<your desired title>" // Default: App Name.
+    description = "<your description here>"
+    contact = "<your email>"
+    license = "<your license>"
+    licenseUrl = "<your license link>"
+    scan = true
+}
 ```
 
 If you are updating from a previous version of swagger4jaxrs and want to use the above method to configure your app you will need to remove the bean declaration from applicationContext.xml that you had previously added. You will also have to define the grails.serverURL in your config.
