@@ -44,7 +44,7 @@ class Swagger4jaxrsGrailsPlugin {
             bean.autowire = true
             resourcePackage = local.resourcePackage
             version = local.version ?: "1"
-            basePath = "${application.config.grails.serverURL}/api"
+            basePath = "${application.config.grails.serverURL}"
             title = local.title ?: grails.util.Metadata.current.'app.name'
             description = local.description ?: ""
             contact = local.contact ?: ""
@@ -64,7 +64,7 @@ class Swagger4jaxrsGrailsPlugin {
         event.ctx.getBean('swaggerConfig').with {
             resourcePackage = local.resourcePackage
             version = local.version ?: "1"
-            basePath = "${application.config.grails.serverURL}/api"
+            basePath = "${application.config.grails.serverURL}"
             title = local.title ?: grails.util.Metadata.current.'app.name'
             description = local.description ?: ""
             contact = local.contact ?: ""

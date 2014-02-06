@@ -79,8 +79,8 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.*;
 
 @Path("/api/user")
-@Api(value="/user", description = "Operations about user")
-@Produces(["application/json"])
+@Api(value="/api/user", description = "Operations about user")
+@Produces({"application/json"})
 public class UserResource {
 	static UserData userData = new UserData();
 
