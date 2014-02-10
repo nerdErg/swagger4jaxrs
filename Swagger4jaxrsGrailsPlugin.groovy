@@ -15,7 +15,8 @@ class Swagger4jaxrsGrailsPlugin {
     def license = "APACHE"
     def organization = [ name: "nerdErg Pty. Ltd.", url: "http://www.nerderg.com/" ]
     def developers = [
-        [ name: "Angel Ruiz", email: "aruizca@gmail.com" ]
+        [ name: "Angel Ruiz", email: "aruizca@gmail.com" ],
+        [ name: "Aaron Brown", email: "brown.aaron.lloyd@gmail.com"],
     ]
     def issueManagement = [ system: "GitHub", url: "https://github.com/nerdErg/swagger4jaxrs/issues" ]
     def scm = [ url: "https://github.com/nerdErg/swagger4jaxrs" ]
