@@ -2,8 +2,6 @@ import grails.util.Environment
 
 import org.codehaus.groovy.grails.commons.GrailsApplication
 
-import org.codehaus.groovy.grails.web.mapping.LinkGenerator
-
 import com.wordnik.swagger.jaxrs.config.BeanConfig
 
 class Swagger4jaxrsGrailsPlugin {
@@ -44,7 +42,6 @@ class Swagger4jaxrsGrailsPlugin {
             bean.autowire = true
             resourcePackage = local.resourcePackage
             version = local.version ?: "1"
-            basePath = "${application.config.grails.serverURL}"
             title = local.title ?: grails.util.Metadata.current.'app.name'
             description = local.description ?: ""
             contact = local.contact ?: ""
@@ -64,7 +61,6 @@ class Swagger4jaxrsGrailsPlugin {
         event.ctx.getBean('swaggerConfig').with {
             resourcePackage = local.resourcePackage
             version = local.version ?: "1"
-            basePath = "${application.config.grails.serverURL}"
             title = local.title ?: grails.util.Metadata.current.'app.name'
             description = local.description ?: ""
             contact = local.contact ?: ""
