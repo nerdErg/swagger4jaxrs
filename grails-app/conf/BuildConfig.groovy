@@ -13,7 +13,7 @@ grails.project.dependency.resolution = {
     }
 
     dependencies {
-        compile 'com.wordnik:swagger-jaxrs_2.10:1.3.0'
+        compile 'com.wordnik:swagger-jaxrs_2.10:1.3.2'
         compile 'com.fasterxml.jackson.core:jackson-core:2.1.0'
         compile 'com.fasterxml.jackson.core:jackson-databind:2.1.0'
 
@@ -25,9 +25,7 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
-        runtime(':jaxrs:0.8') {
-            export = false
-        }
+        compile(':jaxrs:0.8')
 
         build ':release:2.2.1', ':rest-client-builder:1.0.3', {
             export = false
