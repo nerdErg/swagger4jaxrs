@@ -15,28 +15,30 @@ compile ":swagger4jaxrs:0.1"
 ```
 
 ## Configuration
-Next we need to configure Swagger in our host application. To do that, we have to add and customize the following Spring Bean declaration within your **resources.groovy** file located at **grails-app/conf/spring/resources.groovy**:
+
+The following configuration is the minimum the plugin requires, which can be placed in the ```grails-app/conf/Config.groovy``` file:
 
 ```groovy
-    import com.wordnik.swagger.jaxrs.config.BeanConfig
-    beans = {
-
-        swaggerConfig(BeanConfig) {
-            resourcePackage = "<package with your resources>"
-            version = "<your REST API version>"
-            basePath = "${grailsApplication.config.grails.serverURL}/api"
-            title = "<your App Name>"
-            description = "<your description here>"
-            contact = "<your email>"
-            license = "<your license>"
-            licenseUrl = "<your license link>"
-            scan = true
-        }
-    }
+'swagger4jaxrs' {
+    resourcePackage = "<package with your resources>"
+}
 ```
 
-If you are updating from a previous version of swagger4jaxrs and want to use the above method to configure your app you will need to remove the bean declaration from applicationContext.xml that you had previously added. You will also have to define the grails.serverURL in your config.
+And this is the fully enumerated setup:
 
+```groovy
+'swagger4jaxrs' {
+    resourcePackage = "<package with your resources>"
+
+    version = "<your REST API version>" // Default "1".
+    title = "<your desired title>" // Default: App Name.
+    description = "<your description here>"
+    contact = "<your email>"
+    license = "<your license>"
+    licenseUrl = "<your license link>"
+    scan = true
+}
+```
 
 Make sure you have added the Swagger annotations in your JAX-RS "resources" with the required meta information to generate a comprehensive documentarion for you REST API. Next there is a good [example](https://github.com/wordnik/swagger-core/tree/master/samples "Swager implementation samples") to show you how:
 
@@ -70,8 +72,8 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.*;
 
 @Path("/api/user")
-@Api(value="/user", description = "Operations about user")
-@Produces(["application/json"])
+@Api(value="/api/user", description = "Operations about user")
+@Produces({"application/json"})
 public class UserResource {
 	static UserData userData = new UserData();
 

@@ -21,7 +21,7 @@
     var baseUrl = '';
     $(function () {
       window.swaggerUi = new SwaggerUi({
-        url: "${grailsApplication.config.grails.serverURL}/api-docs",
+        url: "${apiDocsPath}",
         dom_id: "swagger-ui-container",
         supportedSubmitMethods: ['get', 'post', 'put', 'delete'],
         onComplete: function (swaggerApi, swaggerUi) {
