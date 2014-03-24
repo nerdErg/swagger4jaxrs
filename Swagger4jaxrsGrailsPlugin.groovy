@@ -41,12 +41,13 @@ class Swagger4jaxrsGrailsPlugin {
         swaggerConfig(BeanConfig) { bean ->
             bean.autowire = true
             resourcePackage = local.resourcePackage
-            version = local.version ?: "1"
+            basePath = local.basePath ?: ''
+            version = local.version ?: '1'
             title = local.title ?: grails.util.Metadata.current.'app.name'
-            description = local.description ?: ""
-            contact = local.contact ?: ""
-            license = local.license ?: ""
-            licenseUrl = local.licenseUrl ?: ""
+            description = local.description ?: ''
+            contact = local.contact ?: ''
+            license = local.license ?: ''
+            licenseUrl = local.licenseUrl ?: ''
             scan = local.scan ?: true
         }
     }
@@ -60,6 +61,7 @@ class Swagger4jaxrsGrailsPlugin {
 
         event.ctx.getBean('swaggerConfig').with {
             resourcePackage = local.resourcePackage
+            basePath = local.basePath ?: ''
             version = local.version ?: "1"
             title = local.title ?: grails.util.Metadata.current.'app.name'
             description = local.description ?: ""

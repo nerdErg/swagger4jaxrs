@@ -14,13 +14,26 @@ First add the following plugin dependency to your BuildConfig.groovy file:
 compile ":swagger4jaxrs:0.1"
 ```
 
+By default this plugin depends on the jaxrs plugin **version 0.8**. That version of jaxrs is **only compatible with Grails 2.2**. If you are using a different version of Grails you will have to manually add the jaxrs plugin dependecy:
+
+* If Grails version <= 2.2
+
+```
+    compile ":jaxrs:0.9"
+```
+* If Grails version >= 2.3
+
+```
+    compile ":jaxrs:0.10"
+```  
+
 ## Configuration
 
 The following configuration is the minimum the plugin requires, which can be placed in the ```grails-app/conf/Config.groovy``` file:
 
 ```groovy
 'swagger4jaxrs' {
-    resourcePackage = "<package with your resources>"
+    resourcePackage = '<package with your resources>'
 }
 ```
 
@@ -28,14 +41,14 @@ And this is the fully enumerated setup:
 
 ```groovy
 'swagger4jaxrs' {
-    resourcePackage = "<package with your resources>"
-
-    version = "<your REST API version>" // Default "1".
-    title = "<your desired title>" // Default: App Name.
-    description = "<your description here>"
-    contact = "<your email>"
-    license = "<your license>"
-    licenseUrl = "<your license link>"
+    resourcePackage = '<package with your resources>'
+	basePath = grailsApplication.config.grails.serverURL ?: ''
+    version = '<your REST API version>' // Default "1".
+    title = '<your desired title>' // Default: App Name.
+    description = '<your description here>'
+    contact = '<your email>'
+    license = '<your license>'
+    licenseUrl = '<your license link>'
     scan = true
 }
 ```
