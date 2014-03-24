@@ -13,7 +13,11 @@ This is a Grails plugin that adds [Swagger](https://developers.helloreverb.com/s
  * The recommmended way to configure this plugin is using the Config.groovy files instead of the resources.groovy file. Lookk at the documentation bellow. This enables hot-swap when the configuration parameters change.
  * Ugraded **com.wordnick:swagger-jaxrs_2.10** dependency to version **1.3.2** from 1.3.0
  * Upgraded [**swagger-ui**](https://github.com/wordnik/swagger-ui) client code to version **2.0.14** from 2.0.2
- * Updated documentation
+ * Compatible with Grails 2.3 when using jaxrs:0.10
+ * Updated documentation.
+* **version 0.1**:
+ * Initial release.
+
 
 ## Installation
 First add the following plugin dependency to your BuildConfig.groovy file:
