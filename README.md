@@ -23,7 +23,7 @@ This is a Grails plugin that adds [Swagger](https://developers.helloreverb.com/s
 First add the following plugin dependency to your BuildConfig.groovy file:
 
 ```groovy
-compile ":swagger4jaxrs:0.1"
+compile ":swagger4jaxrs:0.2"
 ```
 
 By default this plugin depends on the jaxrs plugin **version 0.8**. That version of jaxrs is **only compatible with Grails 2.2**. If you are using a different version of Grails you will have to manually add the jaxrs plugin dependecy:
