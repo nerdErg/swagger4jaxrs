@@ -7,6 +7,14 @@
 
 This is a Grails plugin that adds [Swagger](https://developers.helloreverb.com/swagger/) support to document REST APIs of any Grails projects that use the [Grails JAX-RS (JSR 311) plugin](http://grails.org/plugin/jaxrs).
 
+## Changelog
+
+* **version 0.2**: 
+ * The recommmended way to configure this plugin is using the Config.groovy files instead of the resources.groovy file. Lookk at the documentation bellow. This enables hot-swap when the configuration parameters change.
+ * Ugraded **com.wordnick:swagger-jaxrs_2.10** dependency to version **1.3.2** from 1.3.0
+ * Upgraded [**swagger-ui**](https://github.com/wordnik/swagger-ui) client code to version **2.0.14** from 2.0.2
+ * Updated documentation
+
 ## Installation
 First add the following plugin dependency to your BuildConfig.groovy file:
 
@@ -42,7 +50,7 @@ And this is the fully enumerated setup:
 ```groovy
 'swagger4jaxrs' {
     resourcePackage = '<package with your resources>'
-	basePath = grailsApplication.config.grails.serverURL ?: ''
+	basePath = "${grailsApplication.config.grails.serverURL}/api" ?: ''
     version = '<your REST API version>' // Default "1".
     title = '<your desired title>' // Default: App Name.
     description = '<your description here>'
