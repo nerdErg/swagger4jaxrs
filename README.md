@@ -201,7 +201,7 @@ First of all, after running your app, please check that your [Swagger API declar
 http://localhost:<port>/<host-app-context>/api-docs
 ```
 
-If you get a JSON body by visiting that url then you are ready to see if the Swagger-UI can render it in your browser:
+If you get a JSON body by visiting that url then you are ready to see if the [Swagger-UI](https://github.com/wordnik/swagger-ui) can render it in your browser:
 
 ```
 http://localhost:<port>/<host-app-context>/showRestApi
