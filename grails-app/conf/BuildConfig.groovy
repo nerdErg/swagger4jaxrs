@@ -1,5 +1,13 @@
 grails.project.work.dir = 'target'
 
+System.properties.putAll(
+        [
+                "http.proxyHost":"cache2.lexmark.com",
+                "http.proxyPort":"80",
+                "http.nonProxyHosts":"localhost|*.lexmark.com|*.pvi.com"
+        ]
+)
+
 grails.project.dependency.resolution = {
 
     inherits 'global'
@@ -13,9 +21,9 @@ grails.project.dependency.resolution = {
     }
 
     dependencies {
-        compile 'com.wordnik:swagger-jaxrs_2.10:1.3.2'
-        compile 'com.fasterxml.jackson.core:jackson-core:2.1.0'
-        compile 'com.fasterxml.jackson.core:jackson-databind:2.1.0'
+        compile 'com.wordnik:swagger-jaxrs_2.10:1.3.10'
+        compile 'com.fasterxml.jackson.core:jackson-core:2.4.3'
+        compile 'com.fasterxml.jackson.core:jackson-databind:2.4.3'
 
         if (owner.grailsVersion ==~ /2\.2\..*/) {
             test('org.spockframework:spock-grails-support:0.7-groovy-2.0') {
